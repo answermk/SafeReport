@@ -52,7 +52,6 @@ class _TacticalMapState extends State<TacticalMap> {
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -453,59 +452,5 @@ class _TacticalMapState extends State<TacticalMap> {
     );
   }
 
-  Widget _buildBottomNavigationBar() {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -2),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildNavItem(Icons.settings, 'Setup', false),
-          _buildNavItem(Icons.diamond, 'Cases', false),
-          _buildNavItem(Icons.home, 'Home', false),
-          _buildNavItem(Icons.location_on, 'Map', true),
-          _buildNavItem(Icons.shield, 'Comms', false),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem(IconData icon, String label, bool isActive) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: isActive ? 56 : 40,
-          height: isActive ? 56 : 40,
-          decoration: BoxDecoration(
-            color: isActive ? const Color(0xFF1E3A8A) : Colors.transparent,
-            shape: BoxShape.circle,
-          ),
-          child: Icon(
-            icon,
-            color: isActive ? Colors.white : Colors.grey[600],
-            size: isActive ? 28 : 24,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: GoogleFonts.inter(
-            fontSize: 12,
-            color: isActive ? const Color(0xFF1E3A8A) : Colors.grey[600],
-            fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
-          ),
-        ),
-      ],
-    );
-  }
+  
 } 

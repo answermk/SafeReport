@@ -46,14 +46,17 @@ class TrafficRoute extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          Row(
-            children: [
-              _chip(Icons.traffic, 'Moderate', Colors.orange),
-              const SizedBox(width: 8),
-              _chip(Icons.directions_car, 'Incidents: 2', Colors.red),
-              const SizedBox(width: 8),
-              _chip(Icons.route, 'Tolls: None', Colors.green),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                _chip(Icons.traffic, 'Moderate', Colors.orange),
+                const SizedBox(width: 8),
+                _chip(Icons.directions_car, 'Incidents: 2', Colors.red),
+                const SizedBox(width: 8),
+                _chip(Icons.route, 'Tolls: None', Colors.green),
+              ],
+            ),
           ),
           const SizedBox(height: 16),
           _etaCard(),
@@ -66,9 +69,27 @@ class TrafficRoute extends StatelessWidget {
 
   Widget _chip(IconData icon, String label, Color color) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      decoration: BoxDecoration(color: color.withOpacity(0.08), borderRadius: BorderRadius.circular(20), border: Border.all(color: color)),
-      child: Row(children: [Icon(icon, size: 16, color: color), const SizedBox(width: 6), Text(label, style: GoogleFonts.inter(color: color, fontWeight: FontWeight.w600))]),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6), // Reduced padding
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.08), 
+        borderRadius: BorderRadius.circular(16), // Reduced radius
+        border: Border.all(color: color),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min, // Prevent expansion
+        children: [
+          Icon(icon, size: 14, color: color), // Smaller icon
+          const SizedBox(width: 4), // Reduced spacing
+          Text(
+            label, 
+            style: GoogleFonts.inter(
+              color: color, 
+              fontWeight: FontWeight.w600,
+              fontSize: 12, // Smaller font
+            ),
+          ),
+        ],
+      ),
     );
   }
 

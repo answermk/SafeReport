@@ -51,7 +51,6 @@ class _WatchGroupsState extends State<WatchGroups> {
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
@@ -642,59 +641,5 @@ class _WatchGroupsState extends State<WatchGroups> {
     );
   }
 
-  Widget _buildBottomNavigationBar() {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -2),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildNavItem(Icons.settings, 'Setup', false),
-          _buildNavItem(Icons.diamond, 'Cases', false),
-          _buildNavItem(Icons.home, 'Home', true),
-          _buildNavItem(Icons.location_on, 'Map', false),
-          _buildNavItem(Icons.home_work, 'Watch', false),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem(IconData icon, String label, bool isActive) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: isActive ? 56 : 40,
-          height: isActive ? 56 : 40,
-          decoration: BoxDecoration(
-            color: isActive ? const Color(0xFF4285F4) : Colors.transparent,
-            shape: BoxShape.circle,
-          ),
-          child: Icon(
-            icon,
-            color: isActive ? Colors.white : Colors.grey[600],
-            size: isActive ? 28 : 24,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: GoogleFonts.inter(
-            fontSize: 12,
-            color: isActive ? const Color(0xFF4285F4) : Colors.grey[600],
-            fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
-          ),
-        ),
-      ],
-    );
-  }
+  
 } 

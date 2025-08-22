@@ -25,6 +25,7 @@ import 'reports_exports.dart';
 import 'offline_sync.dart';
 import 'help_training.dart';
 import 'security_privacy.dart';
+import 'success_dialogs_demo.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -201,5 +202,9 @@ class NavigationHelper {
 
   static void navigateToSecurityPrivacy(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => const SecurityPrivacy()));
+  }
+
+  static void navigateToSuccessDialogsDemo(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const SuccessDialogsDemo()));
   }
 } 
